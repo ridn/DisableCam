@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>entry</key>
+	<dict>
+		<key>cell</key>
+		<string>PSLinkCell</string>
+		<key>icon</key>
+		<string>disablecam.png</string>
+		<key>label</key>
+		<string>DisableCam</string>
+	</dict>
+	<key>items</key>
+	<array>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>Settings</string>
+		</dict>
+		<dict>
+			<key>PostNotification</key>
+			<string>com.ridan.disablecam.prefs</string>
+			<key>cell</key>
+			<string>PSLinkListCell</string>
+			<key>defaults</key>
+			<string>com.ridan.disablecam</string>
+			<key>detail</key>
+			<string>PSListItemsController</string>
+			<key>footerText</key>
+			<string>Test</string>
+			<key>key</key>
+			<string>hasCamera</string>
+			<key>label</key>
+			<string>Disabled Camera</string>
+			<key>validTitles</key>
+			<array>
+				<string>Front Camera</string>
+				<string>Rear Camera</string>
+			</array>
+			<key>validValues</key>
+			<array>
+				<string>0</string>
+				<string>1</string>
+			</array>
+		</dict>
+		<dict>
+			<key>alignment</key>
+			<integer>1</integer>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>footerText</key>
+			<string>Respring to fully apply</string>
+		</dict>
+		<dict>
+			<key>alignment</key>
+			<integer>1</integer>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>Twitter: @r_idn</string>
+		</dict>
+	</array>
+	<key>title</key>
+	<string>DisableCam</string>
+</dict>
+</plist>
