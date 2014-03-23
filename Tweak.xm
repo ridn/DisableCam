@@ -9,13 +9,13 @@ static BOOL isDir = NO;
 %hook  PLCameraController
 - (BOOL)hasRearCamera
 {
-	if([[NSFileManager defaultManager] fileExistsAtPath: filePath isDirectory: &isDir] && !isDir) 
+	if([[NSFileManager defaultManager] fileExistsAtPath: filePath isDirectory: &isDir] && !isDir)
 		return hasCamera;
 	return %orig;
 }
 - (BOOL)hasFrontCamera
 {
-	if([[NSFileManager defaultManager] fileExistsAtPath: filePath isDirectory: &isDir] && !isDir) 
+	if([[NSFileManager defaultManager] fileExistsAtPath: filePath isDirectory: &isDir] && !isDir)
 		return !hasCamera;
 	return %orig;
 }
@@ -27,4 +27,32 @@ static BOOL isDir = NO;
 		%orig;
 	}
 }
+%end
+//snapchat
+%hook AVCamCaptureManager
+- (id)backFacingCamera
+{
+	if([[NSFileManager defaultManager] fileExistsAtPath: filePath isDirectory: &isDir] && !isDir)
+		if (hasCamera)return nil;
+	return %orig;
+}
+- (id)frontFacingCamera
+{
+	if([[NSFileManager defaultManager] fileExistsAtPath: filePath isDirectory: &isDir] && !isDir)
+		if(!hasCamera)return nil;
+	return %orig;
+}
+
+%end
+%hook AVCameraViewController
+/*- (void)frontCameraButtonPressed
+{
+	%orig;
+}*/
+//this removes the camera button
+- (unsigned int)cameraCount
+{
+		return 1;
+}
+
 %end
